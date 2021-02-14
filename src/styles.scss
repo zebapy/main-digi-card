@@ -1,0 +1,276 @@
+@import url("https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap");
+
+:root {
+  --teal: #afdfdb;
+  --teal-dark: #75c9cc;
+  --beige: #fbdcce;
+  --pink: #e594af;
+  --pink-light: #fac9d9;
+  --beige-dark: #f2bbad;
+  --teal-light: #c7e9e6;
+  --white: #fff;
+  --black: #292929;
+}
+
+@mixin lg {
+  @media (min-width: 1200px) {
+    @content;
+  } 
+}
+
+body {
+  background: var(--beige);
+  font-family: "balsamiq sans", sans-serif;
+}
+
+.app {
+  padding: 1rem;
+}
+
+.wrap {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.card {
+  background: var(--white);
+  padding-left: 2%;
+  padding-right: 2%;
+  padding-top: 5%;
+  padding-bottom: 10%;
+  border-radius: 1rem;
+}
+
+.card-inside {
+}
+
+.card-front {
+  position: relative;
+}
+
+.card-front-hint {
+  background: var(--beige-dark);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  border-radius: 1rem;
+  height: 100%;
+  z-index: -1;
+}
+
+.card p {
+  text-align: center;
+  font-size: 18px;
+}
+
+.browser {
+  background: var(--teal);
+  border-radius: 1rem;
+  position: relative;
+  padding-top: 56.25%;
+  max-width: 600px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.browser-toolbar {
+  display: flex;
+  align-items: center;
+  padding-top: 1rem;
+  position: absolute;
+  top: 0;
+  left: 1rem;
+  right: 1rem;
+
+  > div {
+    margin-left: .25rem;
+    margin-right: .25rem;
+  }
+}
+.browser-btn {
+  background: var(--teal-dark);
+  border-radius: 8px;
+  height: 20px;
+  width: 20px;
+  flex: 0 0 20px;
+}
+.browser-url {
+  background: var(--white);
+  border-radius: 8px;
+  height: 20px;
+  flex: 1 0 auto;
+  
+}
+.browser-menu {
+  width: 30px;
+  height: 20px;
+  flex: 0 0 30px;
+}
+.browser-menu-bar {
+  display: block;
+  height: 4px;
+  width: 30px;
+  background: var(--teal-dark);
+  border-radius: 4px;
+  margin-bottom: 4px;
+}
+.browser-body {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.face {
+  width: 200px;
+  height: 100px;
+  --eye: 50px;
+  --pupil: 20px;
+  --pupil-top: 8px;
+  --pupil-right: 8px;
+  --mouth: 50px;
+}
+
+.face-sm {
+  width: 100px;
+  height: 50px;
+  --eye: 20px;
+  --pupil: 8px;
+  --pupil-right: 4px;
+  --pupil-top: 4px;
+  --mouth: 20px;
+  --cheek: 13px;
+}
+
+.face-fem {
+  --pupil-right: auto;
+  --pupil-left: 4px;
+}
+
+.face-cheek,
+.face-lashes {
+  opacity: 0;
+
+  .face-fem & {
+    opacity: 1;
+  }
+}
+
+.face-upper {
+  display: flex;
+  justify-content: space-between;
+  padding:0  10px;
+}
+
+.face-eye {
+  background: var(--black);
+  border-radius: 10rem;
+  height: var(--eye);
+  width: var(--eye);
+  position: relative;
+}
+
+.face-lashes {
+  transform: rotate(45deg) translateY( 10px);
+  transform-origin: center right;
+  position: relative;
+
+  .face-eye-right & {
+    transform: rotate(-45deg) translateY(10px);
+    transform-origin: center left;
+  }
+
+  &:after,
+  &:before {
+    width: 20px;
+    height: 4px;
+    background:var(--black);
+    border-radius: 4px;
+    content:'';
+    display: block;
+    margin-bottom: 2px;
+  }
+}
+
+.face-pupil {
+  background: var(--white);
+  border-radius: 10rem;
+  height: var(--pupil);
+  width: var(--pupil);
+  position: absolute;
+  top: var(--pupil-top);
+  right: var(--pupil-right);
+  left: var(--pupil-left);
+}
+
+.face-lower {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 10px;
+}
+
+.face-cheek {
+  border-radius: 10rem;
+  background: var(--pink-light);
+  width: var(--cheek);
+  height: var(--cheek);
+}
+
+.face-mouth {
+  width: var(--mouth);
+  height: var(--mouth);
+  position: relative;
+  overflow: hidden;
+}
+
+.face-mouth-inner {
+  position: absolute;
+  top: calc(var(--mouth) / -2);
+  left: 0;
+  border-radius: 10rem;
+  background: var(--pink);
+  width: 100%;
+  height: var(--mouth);
+}
+
+.star {
+    text-align: center;
+}
+
+.bookmarks {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-gap: 1rem;
+}
+.mark {
+  border-radius: 8px;
+  background:var(--teal-light);
+  padding: 1rem;
+}
+.mark-fav {
+  background:var(--white)
+
+}
+
+.controls {
+  margin: 2rem auto;
+  text-align: center;
+}
+
+.btn {
+  display: inline-block;
+  border-radius: 1rem;
+  font-size: 18px;
+  padding: 1rem 2rem;
+  background:var(--beige-dark);
+  border: 0;
+  font-family: inherit;
+  cursor: pointer;
+  outline: 0;
+}
